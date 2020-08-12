@@ -1,23 +1,13 @@
 package yandexImages;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 
 public class YandexImages {
-
-    @Before
-    public void setConfig() {
-        //Configuration.holdBrowserOpen = true;
-
-    }
-
 
     @Test
     public void checkCrane() {
@@ -30,8 +20,5 @@ public class YandexImages {
         actions().sendKeys("https://upload.wikimedia.org/wikipedia/commons/7/7f/Autojerab-AD30.jpg").perform();
         $(By.xpath("//button[@name='cbir-submit']")).click();
         $(By.cssSelector(".CbirTags")).$(byText("автокраны")).shouldBe(visible);
-
-
-
     }
 }
